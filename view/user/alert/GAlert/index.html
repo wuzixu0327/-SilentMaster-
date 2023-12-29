@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jquery封装的Alert提示插件 www.bootstrapmb.com</title>
+    <script src="jquery.min.js"></script>
+    <script src="jqAlert.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./iconfont/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="jqAlert.css" />
+    <style type="text/css">
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #161616;
+        }
+
+        .main-box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .alert-btn {
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            vertical-align: middle;
+            touch-action: manipulation;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            padding: 6px 20px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            border-radius: 4px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            color: #ffffff;
+            margin: 0 20px;
+        }
+        /*按钮背景*/
+        .btn-success {
+            background: #67C23A !important;
+        }
+
+        .btn-danger {
+            background: #F56C6C !important;
+        }
+
+        .btn-warning {
+            background: #E6A23C !important;
+        }
+
+        .btn-primary {
+            background: #409EFF !important;
+        }
+        /*按钮背景hover*/
+        .btn-danger:hover {
+            background: #FF819E !important;
+        }
+
+        .btn-warning:hover {
+            background: #FFC057 !important;
+        }
+
+        .btn-primary:hover {
+            background: #40A9FF !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-box">
+        <div class="alert-btn btn-primary" type='info'>默认</div>
+        <div class="alert-btn btn-warning" type='warning'>警告</div>
+        <div class="alert-btn btn-danger" type='error'>错误</div>
+        <div class="alert-btn btn-success" type='success'>成功</div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".alert-btn").click(function () {
+                let type = $(this).attr('type')
+                var options = {
+                    content: "提示内容" + type,
+                    type: type,//info,success,warning,error
+                    // autoClose : false
+                }
+                $.jqAlert(options);
+            });
+        });
+    </script>
+</body>
+</html>
